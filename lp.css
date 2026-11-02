@@ -1,0 +1,35 @@
+.zha-lp{--navy:#13233F;--blue:#242AFF;--gold:#F69812;--goldink:#8A4F00;--paper:#F7F3EA;--ink:#1A1D22;--slate:#5A6371;font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:18px;line-height:1.5}
+.zha-lp *{box-sizing:border-box}
+.zha-lp .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.zha-lp .hero{background:var(--navy);color:#F7F3EA;padding:56px 0 64px;background-image:repeating-linear-gradient(90deg,transparent 0 119px,rgba(247,243,234,.05) 119px 120px),repeating-linear-gradient(0deg,transparent 0 39px,rgba(247,243,234,.035) 39px 40px)}
+.zha-lp .brand{display:flex;align-items:center;gap:10px;margin-bottom:34px}.zha-lp .brand svg{width:40px;height:40px}
+.zha-lp .brand b{font:800 16px/1 Archivo,Arial,sans-serif;letter-spacing:.02em}.zha-lp .brand span{display:block;font:600 11px Archivo,Arial,sans-serif;letter-spacing:.32em;color:var(--gold);margin-top:3px}
+.zha-lp .kick{font:600 14px "IBM Plex Mono",monospace;color:var(--gold);letter-spacing:.04em;margin-bottom:12px}
+.zha-lp h1{font:800 clamp(38px,6vw,68px)/1.02 Archivo,Arial,sans-serif;margin:0 0 18px;letter-spacing:-.01em;max-width:820px;color:#F7F3EA}
+.zha-lp .lead{font-size:21px;max-width:680px;color:rgba(247,243,234,.88);margin:0 0 26px}
+.zha-lp .cta{display:inline-block;background:var(--gold);color:var(--navy);font:800 19px Archivo,Arial,sans-serif;padding:17px 30px;border-radius:6px;text-decoration:none}
+.zha-lp .cta:hover{filter:brightness(1.05)}
+.zha-lp .small{font-size:15px;color:rgba(247,243,234,.75);margin-top:12px}
+.zha-lp .count{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.zha-lp .count div{border:2px solid rgba(247,243,234,.25);padding:10px 14px;min-width:92px;text-align:center}
+.zha-lp .count b{display:block;font:800 30px Archivo,Arial,sans-serif;color:#fff}.zha-lp .count small{font:600 11px "IBM Plex Mono",monospace;color:var(--gold)}
+.zha-lp .count .lbl{border:0;text-align:left;min-width:0;padding-left:4px}.zha-lp .count .lbl small{color:rgba(247,243,234,.8);font:400 15px "Source Sans 3",Arial,sans-serif}
+.zha-lp section.band{padding:56px 0}.zha-lp section.alt{background:var(--paper)}
+.zha-lp h2{font:800 clamp(28px,4vw,40px)/1.1 Archivo,Arial,sans-serif;color:var(--navy);margin:0 0 22px}
+.zha-lp .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.zha-lp .card{background:#fff;border:1px solid rgba(19,35,63,.15);border-top:6px solid var(--gold);padding:18px 20px}
+.zha-lp .card .n{font:600 13px "IBM Plex Mono",monospace;color:var(--goldink)}.zha-lp .card .t{font:800 21px/1.2 Archivo,Arial,sans-serif;color:var(--navy);margin:4px 0 6px}.zha-lp .card p{margin:0;color:var(--slate);font-size:16px}
+.zha-lp ul.checks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.zha-lp ul.checks li{padding-left:36px;position:relative}
+.zha-lp ul.checks li:before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border:2.5px solid var(--blue);border-radius:5px}
+.zha-lp ul.checks li:after{content:"";position:absolute;left:6px;top:6px;width:9px;height:14px;border:solid var(--gold);border-width:0 4px 4px 0;transform:rotate(40deg)}
+.zha-lp .two{display:grid;grid-template-columns:1fr 1fr;gap:40px}@media(max-width:800px){.zha-lp .two{grid-template-columns:1fr}}
+.zha-lp .bio{display:flex;gap:22px;align-items:flex-start}.zha-lp .bio .ph{flex:none;width:96px;height:96px;border-radius:50%;background:var(--navy);display:grid;place-items:center;color:var(--gold);font:800 30px Archivo,Arial,sans-serif}
+.zha-lp .bio .nm{font:800 21px Archivo,Arial,sans-serif;color:var(--navy)}.zha-lp .bio .ttl{color:var(--slate)}
+.zha-lp details{background:#fff;border:1px solid rgba(19,35,63,.15);padding:14px 18px;margin-bottom:10px}
+.zha-lp summary{font:800 18px Archivo,Arial,sans-serif;color:var(--navy);cursor:pointer}
+.zha-lp details p{margin:10px 0 0;color:var(--ink)}
+.zha-lp .final{background:var(--navy);color:#F7F3EA;text-align:center;padding:52px 0}.zha-lp .final h2{color:#fff}
+.zha-lp .foot{background:#0E1A30;color:rgba(247,243,234,.7);font-size:13px;padding:22px 0;text-align:center}
+.zha-lp .signup-head{text-align:center;padding:44px 0 6px;background:var(--paper)}.zha-lp .signup-head h2{margin-bottom:6px}.zha-lp .signup-head p{margin:0;color:var(--slate)}
+.zha-lp .center{text-align:center}.zha-lp .center .brand{justify-content:center}.zha-lp .center h1,.zha-lp .center .lead{margin-left:auto;margin-right:auto}
