@@ -241,10 +241,12 @@ function end(){
   app.innerHTML=`<div class="panel end">
     <svg class="mark" viewBox="0 0 160 160" aria-hidden="true"><rect class="ring" x="28" y="29.6" width="81.6" height="97.6" rx="24" fill="none" stroke="var(--blue)" stroke-width="14.4"/><path class="chk" d="M48 80l19.2 19.2 56-68.8" fill="none" stroke="var(--card)" stroke-width="25.6" stroke-linecap="round" stroke-linejoin="round"/><path class="chk" d="M48 80l19.2 19.2 56-68.8" fill="none" stroke="var(--gold)" stroke-width="14.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <div class="score">${score}/${n}</div><p class="msg">${msg}</p>${totals}
-    <div class="row"><button class="btn" type="button" id="again">Play again</button><a class="btn ghost" href="#" style="text-decoration:none">All games</a></div>
+    <div class="row"><button class="btn" type="button" id="again">Play again</button><a class="btn ghost" href="#" style="text-decoration:none">All games</a><button class="btn ghost" type="button" id="exit">Exit</button></div>
+    <p class="msg" id="exitnote" hidden style="margin-top:14px"><b>All done!</b> Close this tab to return to your course.</p>
     ${missed.length?`<div class="recap"><b>Review:</b><ul>${missed.join('')}</ul></div>`:''}
   </div>`;
   document.getElementById('again').addEventListener('click',()=>start(key));
+  document.getElementById('exit').addEventListener('click',()=>{try{window.close();}catch(e){}setTimeout(()=>{const n=document.getElementById('exitnote');if(n)n.hidden=false;},350);});
 }
 function route(){const k=(location.hash||'').slice(1);if(GAMES[k])start(k);else menu();window.scrollTo(0,0);}
 addEventListener('hashchange',route);route();
