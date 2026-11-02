@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OSHA 300 Log Crash Course · Practice Games</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#13233F; --blue:#242AFF; --gold:#F69812; --gold-ink:#8A4F00;
+  --paper:#F7F3EA; --card:#FFFFFF; --ink:#1A1D22; --slate:#5A6371;
+  --green:#2E7A4E; --red:#B42318; --rule:rgba(19,35,63,.07); --line:rgba(19,35,63,.18);
+  --green-bg:#E7F2EB; --red-bg:#FBEAE8; --head:#13233F; --chip:#FFFFFF;
+  color-scheme: light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1729; --card:#16233B; --ink:#EEF0F4; --slate:#A9B2C1; --head:#F7F3EA;
+    --gold-ink:#F6B45A; --rule:rgba(247,243,234,.05); --line:rgba(247,243,234,.16);
+    --green:#5FC28A; --red:#F0857A; --green-bg:rgba(95,194,138,.12); --red-bg:rgba(240,133,122,.12);
+    --blue:#7D82FF; --chip:#1C2B47; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1729; --card:#16233B; --ink:#EEF0F4; --slate:#A9B2C1; --head:#F7F3EA;
+  --gold-ink:#F6B45A; --rule:rgba(247,243,234,.05); --line:rgba(247,243,234,.16);
+  --green:#5FC28A; --red:#F0857A; --green-bg:rgba(95,194,138,.12); --red-bg:rgba(240,133,122,.12);
+  --blue:#7D82FF; --chip:#1C2B47; color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  background:var(--paper); color:var(--ink);
+  font:400 18px/1.45 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background-image:repeating-linear-gradient(90deg,transparent 0 119px,var(--rule) 119px 120px),
+                   repeating-linear-gradient(0deg,transparent 0 35px,var(--rule) 35px 36px);
+  min-height:100vh;
+}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 40px}
+header.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+header.top svg{width:36px;height:36px;flex:none}
+header.top .brand{font:800 15px/1.1 Archivo,system-ui,sans-serif;letter-spacing:.02em;color:var(--head)}
+header.top .brand span{display:block;font:600 11px/1.2 Archivo,system-ui,sans-serif;letter-spacing:.32em;color:var(--gold-ink)}
+header.top .crumb{margin-left:auto;font:500 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--slate)}
+h1{font:800 clamp(30px,5vw,46px)/1.04 Archivo,system-ui,sans-serif;letter-spacing:-.01em;color:var(--head);margin:0 0 8px}
+.lede{color:var(--slate);margin:0 0 22px;max-width:620px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:4px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.menu a{display:block;text-decoration:none;color:inherit;padding:18px 18px 16px;border-top:6px solid var(--gold);transition:transform .15s}
+.menu a:hover,.menu a:focus-visible{transform:translateY(-2px)}
+.menu .n{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--gold-ink)}
+.menu .t{font:800 22px/1.15 Archivo,system-ui,sans-serif;color:var(--head);margin:6px 0 4px}
+.menu .d{color:var(--slate);font-size:16px}
+.progress{display:flex;gap:6px;margin:4px 0 16px;flex-wrap:wrap}
+.progress i{width:22px;height:22px;border-radius:5px;border:2px solid var(--line);display:grid;place-items:center}
+.progress i.on{border-color:var(--blue)}
+.progress i.ok{background:var(--green);border-color:var(--green)}
+.progress i.no{background:var(--red);border-color:var(--red)}
+.progress i svg{width:14px;height:14px}
+.meta{display:flex;justify-content:space-between;align-items:baseline;font:500 14px "IBM Plex Mono",ui-monospace,monospace;color:var(--slate)}
+.case{padding:22px 22px 20px;border-left:10px solid var(--gold);margin-bottom:16px}
+.case .tag{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--gold-ink);margin-bottom:8px}
+.case .q{font:600 clamp(21px,3.2vw,26px)/1.3 "Source Sans 3",system-ui,sans-serif;color:var(--ink)}
+.answers{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.answers button{
+  font:700 18px/1.2 Archivo,system-ui,sans-serif;color:var(--head);background:var(--chip);
+  border:2px solid var(--blue);border-radius:6px;padding:16px 14px;min-height:64px;cursor:pointer;text-align:left;
+  transition:background .12s,transform .12s;
+}
+.answers button:hover:not(:disabled){transform:translateY(-1px)}
+.answers button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.answers button:disabled{cursor:default;opacity:.55}
+.answers button.right{opacity:1;background:var(--green-bg);border-color:var(--green)}
+.answers button.wrong{opacity:1;background:var(--red-bg);border-color:var(--red)}
+.feedback{margin-top:16px;padding:16px 18px;border-radius:4px;display:none}
+.feedback.show{display:block;animation:rise .25s ease-out}
+.feedback.good{background:var(--green-bg);border-left:6px solid var(--green)}
+.feedback.bad{background:var(--red-bg);border-left:6px solid var(--red)}
+.feedback .v{font:800 20px Archivo,system-ui,sans-serif;margin-bottom:4px}
+.feedback.good .v{color:var(--green)} .feedback.bad .v{color:var(--red)}
+.feedback .cite{display:inline-block;margin-top:10px;font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--head);border:1.5px solid var(--line);padding:3px 8px;background:var(--card)}
+.next{margin-top:16px;display:flex;justify-content:flex-end}
+.btn{font:800 17px Archivo,system-ui,sans-serif;border:0;border-radius:6px;padding:14px 22px;cursor:pointer;background:var(--navy);color:#F7F3EA}
+:root[data-theme="dark"] .btn{background:var(--gold);color:#13233F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{background:var(--gold);color:#13233F}}
+.btn.ghost{background:transparent;color:var(--head);border:2px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.end{text-align:center;padding:30px 22px}
+.end svg.mark{width:110px;height:110px}
+.end .score{font:800 64px/1 Archivo,system-ui,sans-serif;color:var(--head);margin:10px 0 6px}
+.end .msg{color:var(--slate);max-width:520px;margin:0 auto 18px}
+.end .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.recap{text-align:left;margin:20px auto 0;max-width:620px}
+.recap li{margin:6px 0}
+.totals{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px auto 0;max-width:560px}
+.totals div{border:2px solid var(--line);padding:10px 6px;border-radius:4px}
+.totals b{display:block;font:800 30px Archivo,system-ui,sans-serif;color:var(--blue)}
+.totals small{font:600 12px "IBM Plex Mono",ui-monospace,monospace;color:var(--slate)}
+.foot{margin-top:26px;font-size:13px;color:var(--slate)}
+.ring{stroke-dasharray:400;stroke-dashoffset:400;animation:draw .6s .1s ease-out forwards}
+.chk{stroke-dasharray:120;stroke-dashoffset:120;animation:draw .35s .55s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.ring,.chk{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <svg viewBox="0 0 160 160" aria-hidden="true"><rect x="28" y="29.6" width="81.6" height="97.6" rx="24" fill="none" stroke="var(--blue)" stroke-width="14.4"/><path d="M48 80l19.2 19.2 56-68.8" fill="none" stroke="var(--paper)" stroke-width="25.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 80l19.2 19.2 56-68.8" fill="none" stroke="var(--gold)" stroke-width="14.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="brand">ZERO HARM<span>ACADEMY</span></div>
+    <div class="crumb" id="crumb">Practice games</div>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <p class="foot">General training on federal OSHA recordkeeping (29 CFR Part 1904). Not legal advice. State-plan states may have different rules.</p>
+</div>
+<script>
+const GAMES = {
+  l1:{n:"Lesson 1",title:"Keep a Log?",intro:"Decide whether each company has to keep the OSHA 300 log, or is partially exempt. Think about last calendar year.",
+    opts:["Keep the log","Partially exempt"],
+    cards:[
+      {q:"An auto repair shop had 9 employees at all times last year.",a:1,why:"Ten or fewer employees at all times last calendar year, counted company-wide, means partially exempt.",cite:"29 CFR 1904.1"},
+      {q:"Three machine shops under one company, with 8 employees each.",a:0,why:"Size counts the whole company, not each site: 3 × 8 = 24. More than 10 means you keep the log.",cite:"29 CFR 1904.1"},
+      {q:"An insurance agency with 60 employees.",a:1,why:"Insurance agencies are on OSHA's list of partially exempt lower-hazard industries, at any size.",cite:"29 CFR 1904.2 · Appendix A"},
+      {q:"A warehouse with 7 regular staff that grew to 14 during the holiday rush.",a:0,why:"The size test uses your peak headcount. Hitting 11 or more at any point last year means you keep the log.",cite:"29 CFR 1904.1"},
+      {q:"A law office with 25 employees.",a:1,why:"Legal services are on the partially exempt industry list, so the office doesn't keep the routine log.",cite:"29 CFR 1904.2 · Appendix A"},
+      {q:"A partially exempt company gets a letter from the Bureau of Labor Statistics asking it to keep records this year.",a:0,why:"Exempt or not, if OSHA or BLS asks you in writing to keep records, you keep them.",cite:"29 CFR 1904.41 · 1904.42"}
+    ]},
+  l2:{n:"Lesson 2",title:"First Aid or Recordable?",intro:"Each case is work-related and new. Is the care first aid, or does it make the case recordable?",
+    opts:["First aid","Recordable"],
+    cards:[
+      {q:"A clinic closes a cut with butterfly strips. The worker goes straight back to work.",a:0,why:"Wound closures like butterfly strips and Steri-Strips are on OSHA's first aid list.",cite:"29 CFR 1904.7(b)(5)(ii)"},
+      {q:"A clinic closes a cut with three stitches.",a:1,why:"Sutures and staples are medical treatment beyond first aid.",cite:"29 CFR 1904.7(b)(5)"},
+      {q:"A doctor recommends a prescription painkiller. The worker never fills it.",a:1,why:"A recommendation for prescription medicine counts as medical treatment, even if it's never filled.",cite:"29 CFR 1904.7(b)(5)"},
+      {q:"The worker takes an over-the-counter pain reliever at the label's normal strength.",a:0,why:"Nonprescription medicine at nonprescription strength is first aid.",cite:"29 CFR 1904.7(b)(5)(ii)(A)"},
+      {q:"The worker gets a tetanus shot after a scrape.",a:0,why:"Tetanus immunizations are on the first aid list.",cite:"29 CFR 1904.7(b)(5)(ii)(B)"},
+      {q:"An X-ray shows no fracture. The worker leaves with an elastic wrap and returns to full duty.",a:0,why:"A diagnostic test alone isn't medical treatment, and non-rigid supports like elastic wraps are first aid.",cite:"29 CFR 1904.7(b)(5)(ii)(F)"},
+      {q:"A doctor puts a rigid splint on a finger to keep it immobilized.",a:1,why:"Rigid devices used to immobilize a body part are medical treatment. Splints used only for transport are first aid.",cite:"29 CFR 1904.7(b)(5)(ii)(F)"},
+      {q:"A splinter is removed with tweezers.",a:0,why:"Removing splinters with tweezers, cotton swabs or irrigation is first aid.",cite:"29 CFR 1904.7(b)(5)(ii)(K)"},
+      {q:"A worker passes out from heat on the dock.",a:1,why:"Loss of consciousness makes a work-related case recordable on its own.",cite:"29 CFR 1904.7(b)(6)"},
+      {q:"A worker drinks fluids and rests in the shade for mild heat stress, then finishes the shift.",a:0,why:"Drinking fluids for relief of heat stress is first aid.",cite:"29 CFR 1904.7(b)(5)(ii)(N)"}
+    ]},
+  l3:{n:"Lesson 3",title:"Fix the Log",intro:"Each entry has one problem, or none. Pick what's wrong.",
+    cards:[
+      {q:"Injury on Monday. The doctor keeps the worker off through Thursday; back to work Friday. The log says 4 days away.",
+        opts:["It counted the injury day. It should be 3.","Weekdays only, so it should be 3.","The entry is correct."],a:0,why:"Don't count the day of the injury. Tuesday, Wednesday and Thursday make 3 days away.",cite:"29 CFR 1904.7(b)(3)"},
+      {q:"A recordable laceration was entered on the log 12 days after the supervisor learned of it.",
+        opts:["Late: enter it within 7 calendar days.","Fine: you have 30 days.","Fine: 7 business days is the rule."],a:0,why:"You have 7 calendar days from learning of a recordable case to enter it.",cite:"29 CFR 1904.29(b)(3)"},
+      {q:"A needlestick from a used needle is on the log with the worker's name.",
+        opts:["Write \u201Cprivacy case\u201D instead of the name.","Needlesticks don't go on the log.","The entry is correct."],a:0,why:"Needlesticks and cuts from contaminated sharps are privacy cases. Keep the name on a separate confidential list.",cite:"29 CFR 1904.29(b)(7)"},
+      {q:"The description column says only \u201Churt back.\u201D",
+        opts:["Too vague: name the injury, body part and cause.","Descriptions are optional.","The entry is correct."],a:0,why:"Describe the injury, the body part and what caused it, like \u201Clower back strain, lifting a carton.\u201D",cite:"29 CFR 1904.29"},
+      {q:"A worker was on restricted duty for 10 days, then missed 2 weeks. The outcome box still says \u201Cjob transfer or restriction.\u201D",
+        opts:["Update it to days away, the most serious outcome.","Check both boxes.","Leave it; the first outcome stands."],a:0,why:"Check one outcome only: the most serious so far. Update the entry when a case gets worse.",cite:"29 CFR 1904.29 · 1904.7"},
+      {q:"The doctor ordered 3 days off. The worker came back the next day anyway. The log says 0 days away.",
+        opts:["Count the 3 days the doctor recommended.","Count 1 day, the day actually missed.","The entry is correct."],a:0,why:"If a doctor recommends days away, count them, even if the worker ignores the advice.",cite:"29 CFR 1904.7(b)(3)(ii)"}
+    ]},
+  l4:{n:"Lesson 4",title:"Sort into the 300A",intro:"Each case is on your log. Which Number of Cases column does it add to on the 300A? Pick the most serious outcome.",
+    opts:["(G) Death","(H) Days away from work","(I) Job transfer or restriction","(J) Other recordable case"],
+    cards:[
+      {q:"Back strain. The worker was restricted from lifting for 10 days and never missed work.",a:2,why:"Restricted work, with no days away, goes in column I.",cite:"29 CFR 1904.32"},
+      {q:"Fractured wrist. The worker missed 14 days.",a:1,why:"Any days away from work put the case in column H.",cite:"29 CFR 1904.32"},
+      {q:"Cut closed with stitches. The worker went straight back to full duty.",a:3,why:"Recordable because of medical treatment, but no days away or restriction: column J.",cite:"29 CFR 1904.32"},
+      {q:"Skin rash treated with a prescription cream. No time lost, no restriction.",a:3,why:"Prescription medicine makes it recordable; with no days away or restriction it goes in column J.",cite:"29 CFR 1904.32"},
+      {q:"Restricted duty for 5 days, then 9 days away from work.",a:1,why:"Count each case once, under its most serious outcome. Days away outranks restriction, so it's column H.",cite:"29 CFR 1904.32"},
+      {q:"A work-related death.",a:0,why:"Deaths go in column G, the most serious outcome.",cite:"29 CFR 1904.32"}
+    ]},
+  l5:{n:"Lesson 5",title:"Who Submits?",intro:"Each site keeps OSHA records unless noted. What does it send to OSHA's ITA by March 2? \u201CAppendix A\u201D and \u201CAppendix B\u201D are the ITA lists from Lesson 5.",
+    opts:["The 300A only","300A + 300 and 301 info","No submission"],
+    cards:[
+      {q:"A site with 45 employees in an Appendix A industry.",a:0,why:"Sites with 20 to 249 employees in an Appendix A industry submit the 300A.",cite:"29 CFR 1904.41(a)(1)"},
+      {q:"A site with 300 employees in an industry that keeps records but isn't on Appendix B.",a:0,why:"Sites with 250 or more employees in any industry that must keep records submit the 300A.",cite:"29 CFR 1904.41(a)(1)"},
+      {q:"A site with 120 employees in an Appendix B industry.",a:1,why:"Sites with 100 or more employees in an Appendix B industry submit the 300A plus information from the 300 and 301.",cite:"29 CFR 1904.41(a)(2)"},
+      {q:"A site with 15 employees in an Appendix A industry.",a:2,why:"Under 20 employees at the site, there's no routine submission, unless OSHA asks.",cite:"29 CFR 1904.41"},
+      {q:"A company that's partially exempt from keeping records, with no request from OSHA.",a:2,why:"Partially exempt employers don't submit unless OSHA sends a written request.",cite:"29 CFR 1904.41(a)(3)"},
+      {q:"A site with 200 employees in an Appendix A industry that had zero injuries last year.",a:0,why:"Zero cases still means you submit the 300A, with zeros.",cite:"29 CFR 1904.41(a)(1)"}
+    ]},
+  l6:{n:"Lesson 6",title:"Beat the Clock",intro:"Each event is work-related. How fast must you report it to OSHA, if at all? Clocks start when you learn of it.",
+    opts:["Within 8 hours","Within 24 hours","Not reported (may still be recorded)"],
+    cards:[
+      {q:"A worker dies the day of an incident.",a:0,why:"Report a work-related death within 8 hours of learning about it.",cite:"29 CFR 1904.39(a)(1)"},
+      {q:"A worker loses a fingertip in a press.",a:1,why:"Amputations, including fingertip amputations, are reported within 24 hours.",cite:"29 CFR 1904.39(a)(2)"},
+      {q:"A worker is admitted to the hospital for treatment the same day as a fall.",a:1,why:"An in-patient hospitalization within 24 hours of the incident is reported within 24 hours.",cite:"29 CFR 1904.39(a)(2)"},
+      {q:"A worker is kept at the hospital only for observation, with no treatment.",a:2,why:"A stay only for observation or diagnostic testing isn't reportable under this rule.",cite:"29 CFR 1904.39(b)(9)"},
+      {q:"A worker dies three weeks after a work incident.",a:0,why:"Deaths within 30 days of the incident are reported within 8 hours of learning about them.",cite:"29 CFR 1904.39(b)(6)"},
+      {q:"A delivery driver is badly hurt in a crash on a public highway, outside any construction zone.",a:2,why:"Crashes on public roads outside construction work zones aren't reported under this rule. The case may still be recordable on your log.",cite:"29 CFR 1904.39(b)(3)"},
+      {q:"A worker loses an eye.",a:1,why:"Loss of an eye is reported within 24 hours of learning about it.",cite:"29 CFR 1904.39(a)(2)"},
+      {q:"A worker is admitted to the hospital three days after the incident.",a:2,why:"Only hospitalizations within 24 hours of the incident are reportable. Record the case if it's recordable.",cite:"29 CFR 1904.39(b)(6)"}
+    ]}
+};
+const app=document.getElementById('app'),crumb=document.getElementById('crumb');
+const tick='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const cross='<svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg>';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let state=null;
+function menu(){
+  crumb.textContent='Practice games';
+  app.innerHTML=`<h1>Practice games</h1><p class="lede">One quick game for each lesson of the OSHA 300 Log Crash Course. About a minute each.</p>
+  <div class="menu">${Object.entries(GAMES).map(([k,g])=>`<a class="panel" href="#${k}"><div class="n">${g.n}</div><div class="t">${esc(g.title)}</div><div class="d">${esc(g.intro.split('.')[0])}.</div></a>`).join('')}</div>`;
+}
+function start(key){
+  const g=GAMES[key]; state={key,g,i:0,score:0,res:[],tallies:[0,0,0,0]};
+  crumb.textContent=g.n+' · Practice'; card();
+}
+function card(){
+  const {g,i}=state, c=g.cards[i], opts=c.opts||g.opts;
+  const prog=g.cards.map((_,k)=>`<i class="${k<state.res.length?(state.res[k]?'ok':'no'):(k===i?'on':'')}">${k<state.res.length?(state.res[k]?tick:cross):''}</i>`).join('');
+  app.innerHTML=`<h1>${esc(g.title)}</h1>${i===0?`<p class="lede">${esc(g.intro)}</p>`:''}
+  <div class="meta"><span>Case ${i+1} of ${g.cards.length}</span><span>Score ${state.score}</span></div>
+  <div class="progress" aria-hidden="true">${prog}</div>
+  <div class="panel case"><div class="tag">CASE ${String(i+1).padStart(2,'0')}</div><div class="q">${esc(c.q)}</div></div>
+  <div class="answers" role="group" aria-label="Your answer">${opts.map((o,k)=>`<button type="button" data-k="${k}">${esc(o)}</button>`).join('')}</div>
+  <div class="feedback" id="fb" role="status"></div>
+  <div class="next" id="nx"></div>`;
+  app.querySelectorAll('.answers button').forEach(b=>b.addEventListener('click',()=>answer(+b.dataset.k)));
+  const first=app.querySelector('.answers button'); if(first&&i>0) first.focus({preventScroll:true});
+}
+function answer(k){
+  const {g,i}=state,c=g.cards[i],ok=k===c.a,opts=c.opts||g.opts;
+  state.res.push(ok); if(ok) state.score++; state.tallies[c.a]++;
+  app.querySelectorAll('.answers button').forEach(b=>{const n=+b.dataset.k;b.disabled=true;if(n===c.a)b.classList.add('right');else if(n===k)b.classList.add('wrong');});
+  const fb=document.getElementById('fb');
+  fb.className='feedback show '+(ok?'good':'bad');
+  fb.innerHTML=`<div class="v">${ok?'Correct.':'Not quite. Answer: '+esc(opts[c.a])+'.'}</div><div>${esc(c.why)}</div><span class="cite">${esc(c.cite)}</span>`;
+  const last=i===g.cards.length-1;
+  const nx=document.getElementById('nx'); nx.innerHTML=`<button class="btn" type="button">${last?'See your score':'Next case \u2192'}</button>`;
+  const btn=nx.querySelector('button'); btn.addEventListener('click',()=>{if(last)end();else{state.i++;card();}}); btn.focus({preventScroll:true});
+}
+function end(){
+  const {g,score,key}=state,n=g.cards.length,pct=Math.round(score/n*100);
+  const msg=pct===100?'Perfect. You\u2019ve got this one locked down.':pct>=70?'Solid. Review the ones you missed, then you\u2019re ready.':'Worth another run. Rewatch the lesson, then try again.';
+  const totals=key==='l4'?`<div class="totals">${['G','H','I','J'].map((c,k)=>`<div><b>${state.tallies[k]}</b><small>(${c})</small></div>`).join('')}</div><p class="msg" style="margin-top:10px">Your 300A Number of Cases totals for these six cases.</p>`:'';
+  const missed=g.cards.map((c,k)=>state.res[k]?null:`<li>${esc(c.q)} <b>${esc((c.opts||g.opts)[c.a])}.</b></li>`).filter(Boolean);
+  try{localStorage.setItem('zha300_'+key,JSON.stringify({best:Math.max(score,JSON.parse(localStorage.getItem('zha300_'+key)||'{"best":0}').best||0)}));}catch(e){}
+  app.innerHTML=`<div class="panel end">
+    <svg class="mark" viewBox="0 0 160 160" aria-hidden="true"><rect class="ring" x="28" y="29.6" width="81.6" height="97.6" rx="24" fill="none" stroke="var(--blue)" stroke-width="14.4"/><path class="chk" d="M48 80l19.2 19.2 56-68.8" fill="none" stroke="var(--card)" stroke-width="25.6" stroke-linecap="round" stroke-linejoin="round"/><path class="chk" d="M48 80l19.2 19.2 56-68.8" fill="none" stroke="var(--gold)" stroke-width="14.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="score">${score}/${n}</div><p class="msg">${msg}</p>${totals}
+    <div class="row"><button class="btn" type="button" id="again">Play again</button><a class="btn ghost" href="#" style="text-decoration:none">All games</a></div>
+    ${missed.length?`<div class="recap"><b>Review:</b><ul>${missed.join('')}</ul></div>`:''}
+  </div>`;
+  document.getElementById('again').addEventListener('click',()=>start(key));
+}
+function route(){const k=(location.hash||'').slice(1);if(GAMES[k])start(k);else menu();window.scrollTo(0,0);}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
